@@ -9,7 +9,7 @@ import {
 } from "three"
 
 type ModelProps = {
-  position: [number, number, number]
+  position: any
   scale: number
   horseAction?: any
 }
