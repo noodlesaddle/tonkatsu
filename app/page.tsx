@@ -10,7 +10,6 @@ import { Canvas } from "@react-three/fiber"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import Horse1 from "@/components/Horse1"
-import WaterSurface from "@/components/WaterSurface"
 
 export default function IndexPage() {
   return (
@@ -53,7 +52,7 @@ export default function IndexPage() {
 
           <Suspense fallback={null}>
             <group position={[0, -1, 1]}>
-              <Horse1 position={[]} scale={0} />
+              <Horse1 />
             </group>
           </Suspense>
         </Canvas>
