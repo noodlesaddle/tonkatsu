@@ -1,5 +1,6 @@
 "use client"
 
+//@ts-nocheck
 import { Suspense } from "react"
 import Link from "next/link"
 import { Physics, usePlane } from "@react-three/cannon"
