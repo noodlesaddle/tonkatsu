@@ -1,5 +1,6 @@
 "use client"
 
+//@ts-nocheck
 import { Suspense } from "react"
 import Link from "next/link"
 import { Physics, usePlane } from "@react-three/cannon"
@@ -52,7 +53,7 @@ export default function IndexPage() {
 
           <Suspense fallback={null}>
             <group position={[0, -1, 1]}>
-              <Horse1 />
+              <Horse1 position={[]} scale={0} />
             </group>
           </Suspense>
         </Canvas>

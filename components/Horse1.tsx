@@ -1,28 +1,46 @@
-// @ts-nocheck
-"use client"
-
 import React, { useEffect, useRef } from "react"
-import { useAnimations, useGLTF } from "@react-three/drei"
+import { useAnimations, useGLTF, useTexture } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
+import {
+  AmbientLight,
+  DirectionalLight,
+  MeshLambertMaterial,
+  TextureLoader,
+} from "three"
 
-export default function Model({ ...props }): any {
+type ModelProps = {
+  position: any
+  scale: number
+  horseAction?: any
+}
+
+const Model: React.FC<ModelProps> = ({ ...props }) => {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/horse1.gltf")
   const { actions } = useAnimations(animations, group)
   const { camera } = useThree()
-
+  const grassTexture = useTexture("/public/grassTexture.jpeg")
   useEffect(() => {
-    camera.position.set(0, 2, 7) // Adjust the values as needed
+    camera.position.set(1, 2.5, 7.5) // Adjust the values as needed
     camera.lookAt(1, 2, 2) // Adjust the target point as needed
     const horseAction = actions.horse
-    horseAction.setEffectiveTimeScale(1.2)
+    horseAction?.setEffectiveTimeScale(1.2)
     // Play the animation
-    actions.horse.play()
+    actions.horse?.play()
   }, [])
 
   return (
     <>
       <group ref={group} {...props} dispose={null}>
+        <mesh
+          position={[0, 0.1, -1]}
+          rotation={[-Math.PI / 2, 0, 2.2]}
+          receiveShadow
+        >
+          <circleGeometry args={[5, 100, 0.2]} />{" "}
+          {/* Adjust the radius, segments, and thickness as needed */}
+          <meshLambertMaterial attach="material" map={grassTexture} />
+        </mesh>
         <group name="Sketchfab_Scene">
           <group
             name="Sketchfab_model"
@@ -55,3 +73,5 @@ export default function Model({ ...props }): any {
 }
 
 useGLTF.preload("/horse1.gltf")
+
+export default Model
