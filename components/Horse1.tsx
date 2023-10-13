@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useEffect, useRef } from "react"
 import { useAnimations, useGLTF, useTexture } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
