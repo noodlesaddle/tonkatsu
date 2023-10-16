@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useEffect, useRef } from "react"
+import React, { Suspense, useEffect, useRef, useState } from "react"
 import { useAnimations, useGLTF, useTexture } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 
@@ -11,7 +11,7 @@ type ModelProps = {
 
 const Model: React.FC<ModelProps> = ({ ...props }) => {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF("/horse1.gltf")
+  const { nodes, materials, animations } = useGLTF("/horse1.glb")
   const { actions } = useAnimations(animations, group)
   const { camera } = useThree()
 
@@ -26,34 +26,36 @@ const Model: React.FC<ModelProps> = ({ ...props }) => {
 
   return (
     <>
-      <group ref={group} {...props} dispose={null}>
-        <group name="Sketchfab_Scene">
-          <group
-            name="Sketchfab_model"
-            rotation={[-Math.PI / 1.8, 0, -1.6]}
-            scale={0.25}
-          >
-            <group name="b3c9bcb94f114ebeafddc7c3390b8d44abccleanermaterialmergergles">
-              <group name="Object_2" rotation={[Math.PI / 2.0, 1.2, 0]}>
-                <group name="MorphMainGroup">
-                  <mesh
-                    name="Horse1Shape"
-                    geometry={nodes.Horse1Shape.geometry}
-                    animations={true}
-                    material={materials.Horse1Shape}
-                    morphTargetDictionary={
-                      nodes.Horse1Shape.morphTargetDictionary
-                    }
-                    morphTargetInfluences={
-                      nodes.Horse1Shape.morphTargetInfluences
-                    }
-                  />
+      <Suspense fallback={null}>
+        <group ref={group} {...props} dispose={null}>
+          <group name="Sketchfab_Scene">
+            <group
+              name="Sketchfab_model"
+              rotation={[-Math.PI / 1.8, 0, -1.6]}
+              scale={0.25}
+            >
+              <group name="b3c9bcb94f114ebeafddc7c3390b8d44abccleanermaterialmergergles">
+                <group name="Object_2" rotation={[Math.PI / 2.0, 1.2, 0]}>
+                  <group name="MorphMainGroup">
+                    <mesh
+                      name="Horse1Shape"
+                      geometry={nodes.Horse1Shape.geometry}
+                      animations={true}
+                      material={materials.Horse1Shape}
+                      morphTargetDictionary={
+                        nodes.Horse1Shape.morphTargetDictionary
+                      }
+                      morphTargetInfluences={
+                        nodes.Horse1Shape.morphTargetInfluences
+                      }
+                    />
+                  </group>
                 </group>
               </group>
             </group>
           </group>
         </group>
-      </group>
+      </Suspense>
     </>
   )
 }
