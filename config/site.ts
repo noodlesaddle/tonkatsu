@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Natural Meat",
+  name: "BOLOR X33",
   description: "Your trusted partner in importing meat from Mongolia.",
   mainNav: [
     {
