@@ -33,15 +33,17 @@ function Rig({ children }) {
 }
 export default function IndexPage() {
   return (
-    <section className="container grid grid-cols-1 items-center gap-5 pb-8 pt-6 md:grid-cols-2 md:py-10">
+    <section className="container grid grid-cols-1 items-center gap-6 pb-8 pt-6 md:grid-cols-2 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
+          Discover the Taste of Mongolia <br className="hidden sm:inline" />
+          Quality Meats, Worldwide Export
         </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
+        <p className="mt-4 max-w-[700px] text-lg text-muted-foreground">
+          With a focus on exporting premium Mongolian meats, we take pride in
+          sharing the unique taste and tradition of Mongolia with the world. As
+          part of our mission, we also embrace global connections by importing
+          outstanding products to Mongolia
         </p>
 
         <div className="flex gap-4">
@@ -51,7 +53,7 @@ export default function IndexPage() {
             rel="noreferrer"
             className={buttonVariants()}
           >
-            Documentation
+            About us
           </Link>
           <Link
             target="_blank"
@@ -59,7 +61,7 @@ export default function IndexPage() {
             href={siteConfig.links.github}
             className={buttonVariants({ variant: "outline" })}
           >
-            GitHub
+            Contact us
           </Link>
         </div>
       </div>

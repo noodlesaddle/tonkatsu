@@ -2,6 +2,7 @@ import {
   Fingerprint,
   LucideProps,
   Moon,
+  Send,
   SunMedium,
   Twitter,
   Waves,
@@ -14,6 +15,7 @@ export type Icon = LucideIcon
 export const Icons = {
   sun: SunMedium,
   moon: Moon,
+  send: Send,
   octagon: XOctagon,
   twitter: Twitter,
   fingerprint: Fingerprint,
