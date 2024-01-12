@@ -31,6 +31,7 @@ function Rig({ children }) {
     </group>
   )
 }
+console.log("test")
 export default function IndexPage() {
   return (
     <section className="container grid grid-cols-1 items-center gap-6 pb-8 pt-6 md:grid-cols-2 md:py-10">
